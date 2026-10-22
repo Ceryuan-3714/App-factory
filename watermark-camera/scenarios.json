@@ -1,0 +1,341 @@
+{
+  "figmaFileKey": "TwvnLieEu7DSTdVf2vPtPf",
+  "entryNodeId": "1:2",
+  "pageId": "0:1",
+  "readDate": "2026-10-22",
+  "nativeAnnotations": 0,
+  "reactions": 0,
+  "scenarios": [
+    {
+      "group": "拍摄",
+      "name": "相机",
+      "key": "camera",
+      "sourceNodeId": "5:8",
+      "type": "页面",
+      "prerequisite": "首页进入且模拟权限允许",
+      "actions": {
+        "快门": "7:96",
+        "设置": "5:69",
+        "水印": "97:66",
+        "画中画": "5:215",
+        "视频": "toast:视频缺稿"
+      },
+      "exceptions": "拒绝权限、拍摄失败、持续加载"
+    },
+    {
+      "group": "拍摄",
+      "name": "相机点右上角，出拍摄设置",
+      "key": "capture-settings",
+      "sourceNodeId": "5:69",
+      "type": "弹层",
+      "prerequisite": "相机右上角设置",
+      "actions": {
+        "画幅": "切换比例",
+        "定时": "切换定时",
+        "网格线": "切换",
+        "验证水印": "切换",
+        "位置": "98:72",
+        "返回": "5:8"
+      },
+      "exceptions": "定位拒绝"
+    },
+    {
+      "group": "拍摄",
+      "name": "画中画拍摄",
+      "key": "pip-camera",
+      "sourceNodeId": "5:215",
+      "type": "页面",
+      "prerequisite": "相机画中画入口",
+      "actions": {
+        "快门": "7:96",
+        "关闭": "5:8",
+        "设置": "7:767",
+        "替换": "toast:选图缺稿"
+      },
+      "exceptions": "权限拒绝、拍摄失败"
+    },
+    {
+      "group": "模板",
+      "name": "模板中心",
+      "key": "templates",
+      "sourceNodeId": "6:2",
+      "type": "页面",
+      "prerequisite": "首页水印模板",
+      "actions": {
+        "卡片": "6:75",
+        "我的": "6:107",
+        "分类": "筛选",
+        "收藏": "收藏筛选",
+        "搜索": "toast:搜索缺稿"
+      },
+      "exceptions": "暂无收藏"
+    },
+    {
+      "group": "模板",
+      "name": "模板预览",
+      "key": "template-preview",
+      "sourceNodeId": "6:75",
+      "type": "页面",
+      "prerequisite": "已选模板或示例模板",
+      "actions": {
+        "使用模板": "5:8",
+        "收藏": "收藏切换",
+        "返回": "6:2"
+      },
+      "exceptions": "无外部请求"
+    },
+    {
+      "group": "模板",
+      "name": "自定义模板",
+      "key": "custom-template",
+      "sourceNodeId": "6:107",
+      "type": "页面",
+      "prerequisite": "模板中心我的",
+      "actions": {
+        "字段": "63:2",
+        "添加字段": "72:2",
+        "保存": "6:2"
+      },
+      "exceptions": "保存失败、持续加载、草稿保留"
+    },
+    {
+      "group": "首页与记录",
+      "name": "点击全部，进入预览全部图片",
+      "key": "album",
+      "sourceNodeId": "7:131",
+      "type": "页面",
+      "prerequisite": "首页全部或菜单示例入口",
+      "actions": {
+        "全选": "选择切换",
+        "照片": "选择切换",
+        "分享": "toast:分享页缺稿",
+        "删除": "确认后模拟删除"
+      },
+      "exceptions": "未选择、取消、失败重试"
+    },
+    {
+      "group": "照片编辑",
+      "name": "点画中画--选图--画中画编辑",
+      "key": "pip-editor",
+      "sourceNodeId": "7:767",
+      "type": "页面",
+      "prerequisite": "示例小图已准备，选图缺稿用 Toast 说明",
+      "actions": {
+        "形状": "切换",
+        "边框": "调整",
+        "小图": "拖动",
+        "完成": "返回来源",
+        "替换": "toast:选图缺稿",
+        "删除": "移除并返回"
+      },
+      "exceptions": "取消不保存到照片"
+    },
+    {
+      "group": "模板",
+      "name": "添加字段（上划弹层）",
+      "key": "add-field",
+      "sourceNodeId": "72:2",
+      "type": "弹层",
+      "prerequisite": "我的模板点击添加字段",
+      "actions": {
+        "类型": "切换字段类型",
+        "内容": "输入",
+        "完成": "6:107",
+        "取消": "6:107"
+      },
+      "exceptions": "取消不添加"
+    },
+    {
+      "group": "首页与记录",
+      "name": "（拍照后）照片详情",
+      "key": "photo-detail",
+      "sourceNodeId": "7:96",
+      "type": "页面",
+      "prerequisite": "拍照成功、已有照片或示例照片",
+      "actions": {
+        "编辑照片": "7:636",
+        "保存": "模拟相册保存",
+        "返回": "首页"
+      },
+      "exceptions": "保存失败、权限模拟"
+    },
+    {
+      "group": "照片编辑",
+      "name": "照片编辑",
+      "key": "photo-editor",
+      "sourceNodeId": "7:636",
+      "type": "页面",
+      "prerequisite": "详情点击编辑照片",
+      "actions": {
+        "水印": "97:66",
+        "添加水印": "97:66",
+        "画中画": "7:767",
+        "裁剪": "103:17",
+        "保存": "7:96",
+        "返回": "退出确认"
+      },
+      "exceptions": "失败保留草稿、取消保存、过期回调取消"
+    },
+    {
+      "group": "照片编辑",
+      "name": "照片编辑-水印选中（上划弹层）",
+      "key": "watermark-sheet",
+      "sourceNodeId": "97:66",
+      "type": "弹层",
+      "prerequisite": "照片或相机选中水印",
+      "actions": {
+        "时间": "98:3",
+        "地点": "98:72",
+        "备注": "98:147",
+        "更换模板": "7:681",
+        "开关": "切换对应字段",
+        "完成": "返回来源"
+      },
+      "exceptions": "关闭保留当前编辑上下文"
+    },
+    {
+      "group": "水印字段弹层",
+      "name": "时间格式（半屏弹窗）",
+      "key": "time-format",
+      "sourceNodeId": "98:3",
+      "type": "弹层",
+      "prerequisite": "水印时间行或字段编辑",
+      "actions": {
+        "格式": "选择",
+        "完成": "返回来源",
+        "返回": "取消本次变化"
+      },
+      "exceptions": "返回保留来源上下文"
+    },
+    {
+      "group": "水印字段弹层",
+      "name": "地点切换（半屏弹窗）",
+      "key": "location",
+      "sourceNodeId": "98:72",
+      "type": "弹层",
+      "prerequisite": "水印地点行或拍摄设置",
+      "actions": {
+        "搜索": "输入示例地点",
+        "当前定位": "模拟定位",
+        "附近地点": "选择",
+        "完成": "返回来源"
+      },
+      "exceptions": "定位拒绝、断网、失败、慢速"
+    },
+    {
+      "group": "水印字段弹层",
+      "name": "备注编辑（半屏弹窗）",
+      "key": "note",
+      "sourceNodeId": "98:147",
+      "type": "弹层",
+      "prerequisite": "水印备注行",
+      "actions": {
+        "备注": "输入最多40字",
+        "完成": "返回来源",
+        "返回": "取消输入"
+      },
+      "exceptions": "未完成不写入已保存内容"
+    },
+    {
+      "group": "照片编辑",
+      "name": "照片编辑-裁剪",
+      "key": "crop",
+      "sourceNodeId": "103:17",
+      "type": "状态",
+      "prerequisite": "照片编辑裁剪入口",
+      "actions": {
+        "比例": "切换",
+        "完成": "7:636",
+        "取消": "7:636",
+        "保存": "7:96"
+      },
+      "exceptions": "取消恢复原比例、保存失败"
+    },
+    {
+      "group": "图片验证",
+      "name": "图片验证",
+      "key": "verify-query",
+      "sourceNodeId": "104:3",
+      "type": "页面",
+      "prerequisite": "首页图片验证",
+      "actions": {
+        "编号": "输入",
+        "查询": "104:24"
+      },
+      "exceptions": "空编号、未找到、断网、失败、持续加载"
+    },
+    {
+      "group": "图片验证",
+      "name": "验证结果",
+      "key": "verify-result",
+      "sourceNodeId": "104:24",
+      "type": "页面",
+      "prerequisite": "示例编号查询成功或菜单示例入口",
+      "actions": {
+        "返回": "104:3"
+      },
+      "exceptions": "仅为模拟验证成功结果，不执行真实查验"
+    },
+    {
+      "group": "首页与记录",
+      "name": "首页",
+      "key": "home-empty",
+      "sourceNodeId": "29:3",
+      "type": "页面",
+      "prerequisite": "首次进入或空状态预览",
+      "actions": {
+        "相机": "5:8",
+        "图片加水印": "toast:相册选图缺稿",
+        "图片验证": "104:3",
+        "水印模板": "6:2",
+        "全部": "7:131"
+      },
+      "exceptions": "权限拒绝、缺稿入口"
+    },
+    {
+      "group": "首页与记录",
+      "name": "首页（有记录）",
+      "key": "home-records",
+      "sourceNodeId": "29:49",
+      "type": "页面",
+      "prerequisite": "已有保存记录或示例状态",
+      "actions": {
+        "相机": "5:8",
+        "照片": "7:96",
+        "全部": "7:131"
+      },
+      "exceptions": "无记录时可使用空状态"
+    },
+    {
+      "group": "照片编辑",
+      "name": "编辑-水印模板切换",
+      "key": "watermark-template",
+      "sourceNodeId": "7:681",
+      "type": "页面",
+      "prerequisite": "水印弹层更换模板",
+      "actions": {
+        "分类": "切换",
+        "缩略图": "选择",
+        "自定义": "6:107",
+        "完成": "97:66",
+        "无水印": "返回来源并移除"
+      },
+      "exceptions": "保留原照片草稿"
+    },
+    {
+      "group": "模板",
+      "name": "字段编辑",
+      "key": "field-editor",
+      "sourceNodeId": "63:2",
+      "type": "页面",
+      "prerequisite": "自定义模板中选中字段",
+      "actions": {
+        "样式": "修改字号颜色透明度",
+        "时间格式": "98:3",
+        "完成": "6:107",
+        "删除": "确认后移除字段"
+      },
+      "exceptions": "取消保留原数据"
+    }
+  ]
+}
